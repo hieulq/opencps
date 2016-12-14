@@ -16,7 +16,7 @@
   </checkstyle>
 </target>
 
-<target name="init-checkstyle" depends="resolve">
+<target name="init-checkstyle">
 	<path id="checkstyle.lib.path">
             <fileset dir="lib" includes="*.jar"/>
 	</path>
