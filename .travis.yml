@@ -1,4 +1,5 @@
 language: java
+sudo: required
 
 jdk:
   - oraclejdk7
@@ -39,3 +40,5 @@ before_install:
 install: 
   - ant -buildfile portlets/opencps-portlet/build.xml checkstyle
 
+notifications:
+  email: false
