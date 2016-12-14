@@ -30,15 +30,16 @@ before_install:
   - sed -i '341d' build.properties
   - sed -i '341i ivy.jar.url=https://repository.liferay.com/nexus/content/repositories/liferay-public-snapshots/com/liferay/org.apache.ivy/${ivy.version}/org.apache.ivy-${ivy.version}.jar' build.properties
 
+# Install ECJ
+  - sudo apt-get install ecj
+  - sudo ln -s /usr/share/java/ecj.jar /usr/share/ant/lib/ecj.jar
+
 # Start the application server
 #  - $LIFERAY_HOME/jboss-7.1.1/bin/standalone.sh
 # Prepare the database
 #  - sudo apt-get install mysql-server
 #  - cp scripts/portal-ext.properties $LIFERAY_HOME
 #  - mysql -uroot -p opencps < "db_script/opencps_portal.sql"
-
-# 1st run to install ECJ
-  - sudo ant -buildfile portlets/opencps-portlet/build.xml checkstyle
 
 script: 
   - sudo ant -buildfile portlets/opencps-portlet/build.xml checkstyle
