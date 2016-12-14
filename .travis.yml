@@ -9,7 +9,6 @@ cache:
 
 before_install: 
   - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-jboss-6.2-ce-ga6-20160112152609836.zip' -O liferay.zip
-  - mkdir liferay
   - unzip -o liferay.zip -d liferay
   - export LIFERAY_HOME=liferay/liferay-portal-6.2-ce-ga6
   - ls -lht $LIFERAY_HOME/*
