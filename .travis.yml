@@ -27,7 +27,7 @@ before_install:
 
 # Copy SDK folder content to OpenCPS code base
   - cp -r liferay-plugins/liferay-plugins-sdk-6.2/* .
-  - sed -i '341d' build.properties
+#  - sed -i '341d' build.properties
 #  - sed -i '341i ivy.jar.url=https://repository.liferay.com/nexus/content/repositories/liferay-public-snapshots/com/liferay/org.apache.ivy/${ivy.version}/org.apache.ivy-${ivy.version}.jar' build.properties
 
 # Install ECJ
