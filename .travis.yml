@@ -38,7 +38,7 @@ before_install:
 #  - mysql -uroot -p opencps < "db_script/opencps_portal.sql"
 
 # 1st run to install ECJ
-   - sudo ant -buildfile portlets/opencps-portlet/build.xml checkstyle
+  - sudo ant -buildfile portlets/opencps-portlet/build.xml checkstyle
 
 script: 
   - sudo ant -buildfile portlets/opencps-portlet/build.xml checkstyle
