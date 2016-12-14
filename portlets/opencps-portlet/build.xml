@@ -2,5 +2,25 @@
 <!DOCTYPE project>
 
 <project name="opencps-portlet" basedir="." default="deploy">
-	<import file="../build-common-portlet.xml" />
+<import file="../build-common-portlet.xml" />
+
+<target name="checkstyle"
+        description="Generates a report of code convention violations."
+	depends="init-checkstyle">
+  <!-- See http://checkstyle.sourceforge.net/anttask.html for full options of using checkstyle with ant-->
+  <checkstyle config="../../checkstyle.xml"
+              failureProperty="checkstyle.failure"
+              failOnViolation="false">
+    <formatter type="xml" tofile="checkstyle_report.xml"/>
+    <fileset dir="portlets" includes="**/*.java"/>
+  </checkstyle>
+</target>
+
+<target name="init-checkstyle" depends="resolve">
+	<path id="checkstyle.lib.path">
+            <fileset dir="lib" includes="*.jar"/>
+	</path>
+	<!-- Sevntu custom checks are retrieved by Ivy into lib folder and will be accessible to checkstyle-->
+	<taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties" classpathref="checkstyle.lib.path"/>
+</target>
 </project>
