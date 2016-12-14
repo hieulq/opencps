@@ -11,7 +11,7 @@
   <checkstyle config="../../checkstyle.xml"
               failureProperty="checkstyle.failure"
               failOnViolation="false">
-    <formatter type="xml" tofile="checkstyle_report.xml"/>
+    <formatter type="plain" />
     <fileset dir="../../portlets" includes="**/*.java"/>
   </checkstyle>
 </target>
