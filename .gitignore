@@ -2,7 +2,6 @@
 apps/
 build-common-ivy.xml
 build-common-osgi-plugin.xml
-#build-common-plugin.xml
 build-common-plugins-inspector.xml
 build-common-plugins.xml
 build-common.xml

@@ -987,4 +987,3 @@ Include-Resource: WEB-INF/=server-config.wsdd,classes;filter:=*.wsdd
 		<delete dir="${service.base.dir}/taglib-classes" />
 	</target>
 </project>
-
