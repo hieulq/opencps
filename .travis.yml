@@ -30,8 +30,10 @@ before_install:
   - sed -i '341i ivy.jar.url=https://repository.liferay.com/nexus/content/repositories/liferay-public-snapshots/com/liferay/org.apache.ivy/${ivy.version}/org.apache.ivy-${ivy.version}.jar' build.properties
 
 # install deps for building
-  - wget --no-check-certificate https://www.dropbox.com/s/ya1alwnyrl3nabz/warlib.tar.gz
-  - tar zxvf warlib.tar.gz
+#  - wget --no-check-certificate https://www.dropbox.com/s/ya1alwnyrl3nabz/warlib.tar.gz
+#  - tar zxvf warlib.tar.gz
+  - curl -J -O --insecure https://drive.fds.vn/index.php/s/J2SJgzRDBzOguMn/download
+  - unzip lib.zip
   - cp lib/* portlets/opencps-portlet/docroot/WEB-INF/lib/
   - wget --no-check-certificate -q https://www.dropbox.com/s/scbtu14kz51jvet/build-common-plugin.xml
   - wget --no-check-certificate https://www.dropbox.com/s/290n49dhjnbkbc2/portal-service.jar -P $LIFERAY_HOME/tomcat-7.0.62/lib/ext
@@ -43,26 +45,20 @@ before_install:
   - sudo ln -s /usr/share/java/ecj.jar /usr/share/ant/lib/ecj.jar
   
 # Build service
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/accountmgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
-
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/datamgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
-
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/processmgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
-
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/paymentmgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
-
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/dossiermgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
-
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/servicemgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
-
-  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/usermgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
-  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/accountmgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/datamgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/processmgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/paymentmgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/dossiermgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/servicemgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
+#  - cp -rf portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/usermgt/dao/service.xml portlets/opencps-portlet/docroot/WEB-INF/
+#  - ant -buildfile portlets/opencps-portlet/build.xml build-service
 
 # Prepare the database
 #  - cp scripts/portal-ext.properties $LIFERAY_HOME
