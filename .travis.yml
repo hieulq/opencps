@@ -14,11 +14,11 @@ cache:
 before_install: 
   - pwd
   - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip' -O liferay.zip
-  - unzip -o -q liferay.zip
-  - mv liferay-portal-6.2-ce-ga6 bundles
-  - export LIFERAY_HOME=bundles
+  - unzip -o -q liferay.zip -d ../
+  - mv ../liferay-portal-6.2-ce-ga6 ../bundles
+  - export LIFERAY_HOME=../bundles
   - ls -lht $LIFERAY_HOME/*
-  - chmod +x bundles/tomcat-7.0.62/bin/*
+  - chmod +x ../bundles/tomcat-7.0.62/bin/*
 
 # Get the SDK and unpack it
   - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-plugins-sdk-6.2-ce-ga6-20160112152609836.zip' -O liferay-plugins-sdk.zip
