@@ -12,7 +12,6 @@ cache:
     - liferay
 
 before_install: 
-  - pwd
   - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip' -O liferay.zip
   - unzip -o -q liferay.zip -d ../
   - mv ../liferay-portal-6.2-ce-ga6 ../bundles
@@ -41,6 +40,7 @@ before_install:
 # Install ECJ
   - sudo apt-get install ecj
   - sudo ln -s /usr/share/java/ecj.jar /usr/share/ant/lib/ecj.jar
+  - ls -la portlets/opencps-portlet/docroot/WEB-INF/lib/
 
 # Prepare the database
 #  - cp scripts/portal-ext.properties $LIFERAY_HOME
