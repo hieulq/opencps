@@ -12,16 +12,11 @@ cache:
     - liferay
 
 before_install: 
-  - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-jboss-6.2-ce-ga6-20160112152609836.zip' -O liferay.zip
+  - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip' -O liferay.zip
   - unzip -o -q liferay.zip -d liferay
   - export LIFERAY_HOME=liferay/liferay-portal-6.2-ce-ga6
   - ls -lht $LIFERAY_HOME/*
-  - chmod +x liferay/liferay-portal-6.2-ce-ga6/jboss-7.1.1/bin/*
-  - sed -i 's/jboss.bind.address.management:127.0.0.1/jboss.bind.address.management:0.0.0.0/g'  $LIFERAY_HOME/jboss-7.1.1/standalone/configuration/standalone.xml
-  - sed -i 's/jboss.bind.address:127.0.0.1/jboss.bind.address:0.0.0.0/g'  $LIFERAY_HOME/jboss-7.1.1/standalone/configuration/standalone.xml
-  - sed -i 's/jboss.bind.address.unsecure:127.0.0.1/jboss.bind.address.unsecure:0.0.0.0/g' $LIFERAY_HOME/jboss-7.1.1/standalone/configuration/standalone.xml
-  - sed -i 's/deployment-timeout="120"/deployment-timeout="6000"/g'  $LIFERAY_HOME/jboss-7.1.1/standalone/configuration/standalone.xml
-  - sed -i 's/MaxPermSize=256m/MaxPermSize=4096m/g' $LIFERAY_HOME/jboss-7.1.1/bin/standalone.conf
+  - chmod +x liferay/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/bin/*
 
 # Get the SDK and unpack it
   - wget --progress=bar:force 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.5%20GA6/liferay-plugins-sdk-6.2-ce-ga6-20160112152609836.zip' -O liferay-plugins-sdk.zip
@@ -37,7 +32,7 @@ before_install:
   - wget --no-check-certificate https://www.dropbox.com/s/ya1alwnyrl3nabz/warlib.tar.gz
   - tar zxvf warlib.tar.gz -C portlets/opencps-portlet/docroot/WEB-INF/lib/ 
   - wget --no-check-certificate -q https://www.dropbox.com/s/scbtu14kz51jvet/build-common-plugin.xml
-  - wget --no-check-certificate https://www.dropbox.com/s/290n49dhjnbkbc2/portal-service.jar -P $LIFERAY_HOME/jboss-7.1.1/modules/com/liferay/portal/main/
+  - wget --no-check-certificate https://www.dropbox.com/s/290n49dhjnbkbc2/portal-service.jar -P $LIFERAY_HOME/tomcat-7.0.62/modules/com/liferay/portal/main/
   - sed -i -e "s/ant.build.javac.source=1.6/ant.build.javac.source=1.7/" build.properties
   - sed -i -e "s/ant.build.javac.target=1.6/ant.build.javac.target=1.7/" build.properties
 
@@ -45,8 +40,6 @@ before_install:
   - sudo apt-get install ecj
   - sudo ln -s /usr/share/java/ecj.jar /usr/share/ant/lib/ecj.jar
 
-# Start the application server
-#  - $LIFERAY_HOME/jboss-7.1.1/bin/standalone.sh
 # Prepare the database
 #  - cp scripts/portal-ext.properties $LIFERAY_HOME
 #  - mysql -uroot -p opencps < "db_script/opencps_portal.sql"
