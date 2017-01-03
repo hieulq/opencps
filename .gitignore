@@ -295,3 +295,4 @@ portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/holidayconfig/service/p
 
 portlets/opencps-portlet/docroot/WEB-INF/src/org/opencps/paymentmgt/service/persistence/PaymentStatusCodePersistenceImpl.java
 
+portlets/opencps-portlet/docroot/WEB-INF/lib/opencps-portlet-service.jar
